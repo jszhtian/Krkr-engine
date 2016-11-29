@@ -1,0 +1,13 @@
+﻿  Krkr2Packer.cpp
+Krkr2Packer.cpp(25): warning C4018: “<”: 有符号/无符号不匹配
+Krkr2Packer.cpp(181): warning C4267: “=”: 从“size_t”转换到“USHORT”，可能丢失数据
+Krkr2Packer.cpp(95): warning C4101: “szPath”: 未引用的局部变量
+  正在生成代码
+  3 of 534 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+zlib.lib(zutil.obj) : warning LNK4049: 已导入本地定义的符号 _free
+zlib.lib(zutil.obj) : warning LNK4049: 已导入本地定义的符号 _malloc
+  Krkr2Packer.vcxproj -> F:\github\Krkr2Packer\Release\Krkr2Packer.exe
+  Krkr2Packer.vcxproj -> F:\github\Krkr2Packer\Release\Krkr2Packer.pdb (Full PDB)
