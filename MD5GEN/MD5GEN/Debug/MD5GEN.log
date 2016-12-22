@@ -1,0 +1,10 @@
+﻿  MD5GEN.cpp
+f:\github\md5gen\md5gen\md5gen\md5gen.cpp(86): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+f:\github\md5gen\md5gen\md5gen\md5gen.cpp(140): warning C4018: “<”: 有符号/无符号不匹配
+f:\github\md5gen\md5gen\md5gen\md5gen.cpp(135): warning C4996: 'getcwd': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getcwd. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\direct.h(91): note: 参见“getcwd”的声明
+f:\github\md5gen\md5gen\md5gen\md5gen.cpp(137): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(90): note: 参见“strcat”的声明
+  MD5GEN.vcxproj -> F:\github\MD5GEN\MD5GEN\Debug\MD5GEN.exe
+  MD5GEN.vcxproj -> F:\github\MD5GEN\MD5GEN\Debug\MD5GEN.pdb (Full PDB)

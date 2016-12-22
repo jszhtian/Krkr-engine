@@ -1,0 +1,14 @@
+﻿  stdafx.cpp
+  MD5GEN.cpp
+MD5GEN.cpp(86): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+MD5GEN.cpp(137): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(90): note: 参见“strcat”的声明
+MD5GEN.cpp(140): warning C4018: “<”: 有符号/无符号不匹配
+MD5GEN.cpp(135): warning C4996: 'getcwd': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getcwd. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\direct.h(91): note: 参见“getcwd”的声明
+  正在生成代码
+  All 552 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  MD5GEN.vcxproj -> F:\github\MD5GEN\MD5GEN\Release\MD5GEN.exe
+  MD5GEN.vcxproj -> F:\github\MD5GEN\MD5GEN\Release\MD5GEN.pdb (Full PDB)
