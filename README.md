@@ -13,6 +13,6 @@ Find TVPXP3ArchiveExtractionFilter to decrypt xp3
 
 //analyse *.tpm to find decrypt function!
 
-Encrypt TJS Scripts->xp3
+Encrypt Scripts->xp3
 
 //write a xp3enc.dll
