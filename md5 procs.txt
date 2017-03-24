@@ -1,0 +1,99 @@
+1000C11C    68 10BE0110     push 0x1001BE10                          ; ASCII "void ::TVP_md5_init(TVP_md5_state_t *)"
+1000C121    E8 2AEDFFFF     call 1000AE50                            ; Call MD5 init
+1000C126    83C4 04         add esp,0x4
+1000C129    A3 D8E00110     mov dword ptr ds:[0x1001E0D8],eax
+1000C12E    8D5424 1C       lea edx,dword ptr ss:[esp+0x1C]
+1000C132    52              push edx
+1000C133    FFD0            call eax
+1000C135    A1 74DE0110     mov eax,dword ptr ds:[0x1001DE74]
+1000C13A    85C0            test eax,eax
+1000C13C    75 12           jnz short 1000C150
+1000C13E    68 D8B90110     push 0x1001B9D8                          ; ASCII "tjs_int tTJSString::length() const"
+1000C143    E8 08EDFFFF     call 1000AE50
+1000C148    83C4 04         add esp,0x4
+1000C14B    A3 74DE0110     mov dword ptr ds:[0x1001DE74],eax
+1000C150    56              push esi
+1000C151    FFD0            call eax
+1000C153    8BF8            mov edi,eax
+1000C155    A1 10DE0110     mov eax,dword ptr ds:[0x1001DE10]
+1000C15A    85C0            test eax,eax
+1000C15C    75 12           jnz short 1000C170
+1000C15E    68 BCB20110     push 0x1001B2BC                          ; ASCII "const tjs_char * tTJSString::c_str() const"
+1000C163    E8 E8ECFFFF     call 1000AE50
+1000C168    83C4 04         add esp,0x4
+1000C16B    A3 10DE0110     mov dword ptr ds:[0x1001DE10],eax
+1000C170    56              push esi
+1000C171    FFD0            call eax
+1000C173    8BF0            mov esi,eax
+1000C175    A1 DCE00110     mov eax,dword ptr ds:[0x1001E0DC]
+1000C17A    85C0            test eax,eax
+1000C17C    75 12           jnz short 1000C190
+1000C17E    68 38BE0110     push 0x1001BE38                          ; ASCII "void ::TVP_md5_append(TVP_md5_state_t *,const tjs_uint8 *,int)"
+1000C183    E8 C8ECFFFF     call 1000AE50                            ; Call MD5_Append
+1000C188    83C4 04         add esp,0x4
+1000C18B    A3 DCE00110     mov dword ptr ds:[0x1001E0DC],eax
+1000C190    8D0C3F          lea ecx,dword ptr ds:[edi+edi]
+1000C193    51              push ecx                                 ; md5block
+1000C194    56              push esi                                 ; String
+1000C195    8D5424 24       lea edx,dword ptr ss:[esp+0x24]
+1000C199    52              push edx
+1000C19A    FFD0            call eax
+1000C19C    A1 74DE0110     mov eax,dword ptr ds:[0x1001DE74]
+1000C1A1    85C0            test eax,eax
+1000C1A3    75 12           jnz short 1000C1B7
+1000C1A5    68 D8B90110     push 0x1001B9D8                          ; ASCII "tjs_int tTJSString::length() const"
+1000C1AA    E8 A1ECFFFF     call 1000AE50
+1000C1AF    83C4 04         add esp,0x4
+1000C1B2    A3 74DE0110     mov dword ptr ds:[0x1001DE74],eax
+1000C1B7    8D75 0C         lea esi,dword ptr ss:[ebp+0xC]
+1000C1BA    56              push esi
+1000C1BB    FFD0            call eax
+1000C1BD    85C0            test eax,eax
+1000C1BF    7E 67           jle short 1000C228
+1000C1C1    A1 74DE0110     mov eax,dword ptr ds:[0x1001DE74]
+1000C1C6    85C0            test eax,eax
+1000C1C8    75 12           jnz short 1000C1DC
+1000C1CA    68 D8B90110     push 0x1001B9D8                          ; ASCII "tjs_int tTJSString::length() const"
+1000C1CF    E8 7CECFFFF     call 1000AE50
+1000C1D4    83C4 04         add esp,0x4
+1000C1D7    A3 74DE0110     mov dword ptr ds:[0x1001DE74],eax
+1000C1DC    56              push esi
+1000C1DD    FFD0            call eax
+1000C1DF    8BF8            mov edi,eax
+1000C1E1    A1 10DE0110     mov eax,dword ptr ds:[0x1001DE10]
+1000C1E6    85C0            test eax,eax
+1000C1E8    75 12           jnz short 1000C1FC
+1000C1EA    68 BCB20110     push 0x1001B2BC                          ; ASCII "const tjs_char * tTJSString::c_str() const"
+1000C1EF    E8 5CECFFFF     call 1000AE50
+1000C1F4    83C4 04         add esp,0x4
+1000C1F7    A3 10DE0110     mov dword ptr ds:[0x1001DE10],eax
+1000C1FC    56              push esi
+1000C1FD    FFD0            call eax
+1000C1FF    8BF0            mov esi,eax
+1000C201    A1 DCE00110     mov eax,dword ptr ds:[0x1001E0DC]
+1000C206    85C0            test eax,eax
+1000C208    75 12           jnz short 1000C21C
+1000C20A    68 38BE0110     push 0x1001BE38                          ; ASCII "void ::TVP_md5_append(TVP_md5_state_t *,const tjs_uint8 *,int)"//Key!!!
+1000C20F    E8 3CECFFFF     call 1000AE50
+1000C214    83C4 04         add esp,0x4
+1000C217    A3 DCE00110     mov dword ptr ds:[0x1001E0DC],eax
+1000C21C    8D0C3F          lea ecx,dword ptr ds:[edi+edi]
+1000C21F    51              push ecx
+1000C220    56              push esi
+1000C221    8D5424 24       lea edx,dword ptr ss:[esp+0x24]
+1000C225    52              push edx
+1000C226    FFD0            call eax
+1000C228    A1 E0E00110     mov eax,dword ptr ds:[0x1001E0E0]
+1000C22D    85C0            test eax,eax
+1000C22F    75 12           jnz short 1000C243
+1000C231    68 78BE0110     push 0x1001BE78                          ; ASCII "void ::TVP_md5_finish(TVP_md5_state_t *,tjs_uint8 *)"
+1000C236    E8 15ECFFFF     call 1000AE50                            ; Call Md5 Finish
+1000C23B    83C4 04         add esp,0x4
+1000C23E    A3 E0E00110     mov dword ptr ds:[0x1001E0E0],eax
+1000C243    8D8C24 84000000 lea ecx,dword ptr ss:[esp+0x84]
+1000C24A    51              push ecx
+1000C24B    8D5424 20       lea edx,dword ptr ss:[esp+0x20]
+1000C24F    52              push edx
+1000C250    FFD0            call eax
+1000C252    33C0            xor eax,eax
+

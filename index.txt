@@ -1,0 +1,3 @@
+0A ks通过，png失败
+1C PNG通过，ks失败
+0F All Pass
