@@ -1,0 +1,8 @@
++MainWindow.tjs
+	function onHelpWEBMenuItemClick(sender)
+	{
+		System.shellExecute("http://www.baidu.com");
+	}
++Menu.tjs
+helpMenu.add(this.helpAboutMenuItem = new KAGMenuItem(this, "WEBÒ³Ãæ(&W) ...", 0,
+			onHelpWEBMenuItemClick, false));

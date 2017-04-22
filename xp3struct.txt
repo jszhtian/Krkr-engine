@@ -1,0 +1,99 @@
+Xp3:
+0xB 5850330D0A200A1A8B6701 Xp3MAG
+0x8 1700000000000000
+0x4 01000000 
+0x1 80 Packed!
+0x8 0000000000000000
+0x0 ??
+0x8 E2EEBB7200000000//File Table Offset
+
+
+
+
+
+FT offset:
+0x1 01->Compress Flag
+0x8 8E07040000000000 compressSize
+0x8 94AB120000000000 originalSize/Zlib!!
+
+
+FILE Struct//eliF¡·FILE-¡·TIME-¡·ADLR-¡·SEGM||½ö¹©²Î¿¼
+
+File:
+46 69 6c 65 //FILE
+B0 00 00 00 00 00 00 00 //ChunkSize
+
+Time:
+74 69 6d 65 //Time
+08 00 00 00 00 00 00 00 //ChunkSize
+xx xx xx xx xx xx xx xx //File Time
+
+adlr:
+61 64 6c 72 //adlr
+04 00 00 00 00 00 00 00 //ChunkSize
+xx xx xx xx //Adler32 CheckSum
+
+segm:
+73 65 67 6d //segm
+1c 00 00 00 00 00 00 00 //ChunkSize
+01 00 00 00 //ZlibFlag(01->compress!)
+xx xx xx xx xx xx xx xx //offset
+xx xx xx xx xx xx xx xx //originalSize/Zlib!
+xx xx xx xx xx xx xx xx //ArchiveSize
+
+INFO://old?
+69 6e 66 6f //INFO
+xx xx xx xx xx xx xx xx //ChunkSize
+00 00 00 80 //Encryption Flag(80->enc!)
+xx xx xx xx xx xx xx xx //originalSize/Zlib!
+xx xx xx xx xx xx xx xx //ArchiveSize
+xx xx //NameLength
+xxxx-xxxx //FileName
+
+INFO://old?
+69 6e 66 6f //INFO
+xx xx xx xx xx xx xx xx //ChunkSize
+00 00 00 80 //Encryption Flag(80->enc!)
+xx xx xx xx xx xx xx xx //originalSize/Zlib!
+xx xx xx xx xx xx xx xx //ArchiveSize
+xx xx //NameLength
+xxxx-xxxx //FileName
+
+INFO://NEW
+69 6e 66 6f //INFO
+58 00 00 00 00 00 00 00 //ChunkSize
+00 00 00 80 //Encryption Flag(80->enc!)
+xx xx xx xx xx xx xx xx //originalSize/Zlib!
+xx xx xx xx xx xx xx xx //ArchiveSize
+0x20-0x?? //Hash Struct/MD5->filename£¡(Wchar_t)
+
+eliF://NEW
+65 6c 69 46 //eliF
+xx xx xx xx xx xx xx xx //Sizeof(String)
+xx xx xx xx //FileHash
+xx xx //Name length
+xx-xxxx //Path?FileName
+
+
+85CD25E40B0073007400610072007400750070002E0074006A0073000000
+//startup.tjs
+E425CD85
+//FileHash
+D09B15E74C06935873A0D5706D086018
+//MD5->startup.tjs(wchar_t)
+
+cbg:
+MAGIC[4]cbg:
+ChunkSize xx xx xx xx xx xx xx xx
+NameTable POS:xx xx xx xx xx xx xx xx
+OrigSize xx xx xx xx
+Packed Size xx xx xx xx
+KeyLength(need *2)xx xx
+Key(0x10)
+
+hnfn:
+Magic hnfn 4
+Chunksize 8
+Adler32 CheckSum 4
+NameLength(need *2)xx xx
+Name xx-xx
