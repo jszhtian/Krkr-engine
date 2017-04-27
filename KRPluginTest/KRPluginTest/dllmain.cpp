@@ -19,7 +19,11 @@ typedef int(WINAPI *PfuncMultiByteToWideChar)(
 	_Out_opt_ LPWSTR lpWideCharStr,
 	_In_      int    cchWideChar);
 bool FirstRUN = true;
+bool FirstFont = true;
 char* checkName;
+iTVPFunctionExporter *exporter = NULL;
+typedef HFONT(WINAPI* fnCreateFontIndirectW)(LOGFONTW *lplf);
+fnCreateFontIndirectW pCreateFontIndirectW;
 /*
 00CE1710 / $  51                     push ecx;  MSG. < ModuleEntryPoint>
 00CE1711 | .  803D 8D820701 00       cmp byte ptr ds : [0x107828D], 0x0
@@ -64,7 +68,6 @@ int OnStartUp()
 {
 	cout << "Initialization..."<<endl;
 	//MessageBoxW(NULL, L"Load!", L"Info", 0);
-	iTVPFunctionExporter *exporter = NULL;
 	_asm 
 	{
 		mov exporter, 0x1074538//MSG
@@ -75,11 +78,19 @@ int OnStartUp()
 	std::wcout << tmp.c_str() << endl;
 	cout << "KRKR Function List:0x" << std::hex << (DWORD)exporter << endl;
 	//Sleep(1500);
-	MessageBoxW(NULL, L"Start!", L"Info", 0);
+	//MessageBoxW(NULL, L"Start!", L"Info", 0);
+	//cout << "AddAutoPath" << endl;
+	//TVPAddAutoPath(L"F:\\tmp2\\MSG\\Project\\");
+	return 0;
+}
+
+int AddPath() 
+{
 	cout << "AddAutoPath" << endl;
 	TVPAddAutoPath(L"F:\\tmp2\\MSG\\Project\\");
 	return 0;
 }
+
 HANDLE WINAPI newcreatefile(LPCTSTR filename, DWORD acc, DWORD smo, LPSECURITY_ATTRIBUTES lpsec, DWORD credis, DWORD flags, HANDLE htmpf)
 {
 	//std::wcout << filename << endl;
@@ -101,13 +112,26 @@ HANDLE WINAPI newcreatefile(LPCTSTR filename, DWORD acc, DWORD smo, LPSECURITY_A
 	}
 	return pcreatefile(filename, acc, smo, lpsec, credis, flags, htmpf);
 }
+
+HFONT WINAPI newCreateFontIndirectW(LOGFONTW *lplf)
+{
+	if (FirstFont&&!FirstRUN)
+	{
+		CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)AddPath, NULL, 0, 0);
+		FirstFont = false;
+	}
+	return pCreateFontIndirectW(lplf);
+}
 void BeginDetour() 
 {
 	pcreatefile = (fnCreateFileW)GetProcAddress(GetModuleHandle(L"kernel32.dll"), "CreateFileW");
-	DetourTransactionBegin();
-	DetourAttach((void**)&pcreatefile, newcreatefile);
+	pCreateFontIndirectW = (fnCreateFontIndirectW)GetProcAddress(GetModuleHandle(L"gdi32.dll"), "CreateFontIndirectW");
 	g_pOldMultiByteToWideChar = DetourFindFunction("Kernel32.dll", "MultiByteToWideChar");
+
+	DetourTransactionBegin();
+	DetourAttach((void**)&pcreatefile, newcreatefile);	
 	DetourAttach(&g_pOldMultiByteToWideChar, NewMultiByteToWideChar);
+	DetourAttach((void**)&pCreateFontIndirectW, newCreateFontIndirectW);
 	DetourTransactionCommit();
 }
 BOOL APIENTRY DllMain( HMODULE hModule,
